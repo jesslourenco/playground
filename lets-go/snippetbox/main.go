@@ -30,9 +30,9 @@ func snippetCreate(w http.ResponseWriter, r *http.Request) {
 func main() {
 	// Register the two new handler functions and corresponding route patterns with // the servemux, in exactly the same way that we did before.
 	mux := http.NewServeMux()
-	mux.HandleFunc("/{$}", home)
-	mux.HandleFunc("/snippet/view/{id}", snippetView)
-	mux.HandleFunc("/snippet/create", snippetCreate)
+	mux.HandleFunc("GET /{$}", home)
+	mux.HandleFunc("GET /snippet/view/{id}", snippetView)
+	mux.HandleFunc("GET /snippet/create", snippetCreate)
 	log.Print("starting server on :4000")
 	err := http.ListenAndServe(":4000", mux)
 	log.Fatal(err)
